@@ -57,6 +57,7 @@ export default {
         content: 'website'
       },
       {
+        hid: 'ogtitle',
         property: 'og:title',
         content: 'Simon Wuyts - Interaction Designer & Front-end Developer'
       },
@@ -65,6 +66,7 @@ export default {
         content: 'https://www.simonwuyts.com/images/share.png'
       },
       {
+        hid: 'ogdescription',
         property: 'og:description',
         content: 'I help other people build digital products.'
       },
