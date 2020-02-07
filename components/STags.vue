@@ -3,11 +3,11 @@
     <li v-for="(item, index) in tags" :key="`tag${index}`" class="c-tags__item">
       <template v-if="typeof item.link === 'string' && item.link !== ''">
         <a class="c-tags__label" :href="item.link" target="_blank">
-          {{ setUpper(item.label) }}
+          {{ item.label }}
         </a>
       </template>
       <span v-else class="c-tags__label">
-        {{ item.label ? setUpper(item.label) : setUpper(item) }}
+        {{ item.label ? item.label : item }}
       </span>
     </li>
   </ul>
