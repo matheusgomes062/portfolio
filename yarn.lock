@@ -7397,11 +7397,6 @@ pretty-time@^1.1.0:
   resolved "https://registry.yarnpkg.com/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
-prism-theme-night-owl@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/prism-theme-night-owl/-/prism-theme-night-owl-1.2.0.tgz#44e65b4305b56243dcd0cd9d0778b9f0b8b20ad5"
-  integrity sha512-Q4h5MqDYnpuNtrlkTT/v7g/FCPRaOSjnlSg0XbMfsUrauNJlptPC49gKTH2JM/ci59Qos3zznytFx9d8qmEW+Q==
-
 prismjs@^1.19.0:
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.19.0.tgz#713afbd45c3baca4b321569f2df39e17e729d4dc"
