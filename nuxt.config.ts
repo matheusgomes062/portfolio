@@ -97,12 +97,14 @@ export default {
       {
         rel: 'alternate',
         type: 'application/rss+xml',
-        href: 'https://www.simonwuyts.com/articles/feed.xml'
+        href: 'https://www.simonwuyts.com/articles/feed.xml',
+        title: 'Simon Wuyts - Interaction Designer & Front-end Developer'
       },
       {
         rel: 'alternate',
         type: 'application/json',
-        href: 'https://www.simonwuyts.com/articles/feed.json'
+        href: 'https://www.simonwuyts.com/articles/feed.json',
+        title: 'Simon Wuyts - Interaction Designer & Front-end Developer'
       }
     ]
   },
