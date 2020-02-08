@@ -1,6 +1,6 @@
 <template>
   <h1 class="c-title enter-fade-up">
-    <div class="c-title__border">
+    <div class="c-title__border" aria-hidden="true">
       <span class="c-title__inner">
         <slot />
       </span>
