@@ -112,6 +112,7 @@ export default {
   plugins: ['@/plugins/composition-api'],
   modules: [
     'nuxt-payload-extractor',
+    ['nuxt-matomo', { matomoUrl: '//analytics.simonwuyts.eu/', siteId: 1 }],
     ['@nuxtjs/feed'],
     'nuxt-svg-loader',
     '@nuxtjs/sitemap'
