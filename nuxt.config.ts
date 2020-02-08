@@ -22,6 +22,7 @@ const createFeed = async (feed: any, extension: string) => {
     feed.addItem({
       title: article.title,
       id: article.slug,
+      date: article.date,
       link: `https://www.simonwuyts.com/articles/${article.slug}`,
       description: article.introduction,
       content: article.content
