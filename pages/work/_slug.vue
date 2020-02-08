@@ -83,16 +83,16 @@ export default createComponent({
         {
           hid: 'ogimage',
           property: 'og:image',
-          content:
-            this.caseItem.social_image ||
-            'https://www.simonwuyts.com/images/share.png'
+          content: this.caseItem.social_image
+            ? this.caseItem.social_image.data.url
+            : 'https://www.simonwuyts.com/images/share.png'
         },
         {
           hid: 'twitterimage',
           property: 'twitter:image',
-          content:
-            this.caseItem.social_image ||
-            'https://www.simonwuyts.com/images/share.png'
+          content: this.caseItem.social_image
+            ? this.caseItem.social_image.data.url
+            : 'https://www.simonwuyts.com/images/share.png'
         }
       ]
     }

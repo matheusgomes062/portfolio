@@ -58,16 +58,16 @@ export default createComponent({
         {
           hid: 'ogimage',
           property: 'og:image',
-          content:
-            this.article.social_image ||
-            'https://www.simonwuyts.com/images/share.png'
+          content: this.article.social_image
+            ? this.article.social_image.data.url
+            : 'https://www.simonwuyts.com/images/share.png'
         },
         {
           hid: 'twitterimage',
           property: 'twitter:image',
-          content:
-            this.article.social_image ||
-            'https://www.simonwuyts.com/images/share.png'
+          content: this.article.social_image
+            ? this.article.social_image.data.url
+            : 'https://www.simonwuyts.com/images/share.png'
         }
       ]
     }
