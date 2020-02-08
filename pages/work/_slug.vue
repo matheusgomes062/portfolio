@@ -74,6 +74,25 @@ export default createComponent({
           hid: 'ogtitle',
           property: 'og:title',
           content: this.caseItem.title
+        },
+        {
+          hid: 'twittertitle',
+          property: 'twitter:title',
+          content: this.caseItem.title
+        },
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content:
+            this.caseItem.social_image ||
+            'https://www.simonwuyts.com/images/share.png'
+        },
+        {
+          hid: 'twitterimage',
+          property: 'twitter:image',
+          content:
+            this.caseItem.social_image ||
+            'https://www.simonwuyts.com/images/share.png'
         }
       ]
     }

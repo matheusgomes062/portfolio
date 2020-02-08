@@ -62,6 +62,7 @@ export default {
         content: 'Simon Wuyts - Interaction Designer & Front-end Developer'
       },
       {
+        hid: 'ogimage',
         property: 'og:image',
         content: 'https://www.simonwuyts.com/images/share.png'
       },
@@ -75,10 +76,12 @@ export default {
         content: 'summary_large_image'
       },
       {
+        hid: 'twitterimage',
         property: 'twitter:image',
         content: 'https://www.simonwuyts.com/images/share.png'
       },
       {
+        hid: 'twittertitle',
         property: 'twitter:title',
         content: 'Simon Wuyts - Interaction Designer & Front-end Developer'
       }
