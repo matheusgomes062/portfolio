@@ -1,7 +1,12 @@
 .c-tags {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 4rem;
+  justify-content: center;
+  margin: -1.6rem 0 3.2rem;
+
+  @media (max-width: 40em) {
+    margin-top: 0;
+  }
 }
 
 .c-tags__item {
@@ -13,9 +18,11 @@
   border-radius: 0.4rem;
   color: var(--gray-500);
   display: inline-flex;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.01rem;
   padding: 0 0.8rem;
   text-decoration: none;
+  text-transform: uppercase;
   transition: all 0.1s linear;
   white-space: nowrap;
 }
