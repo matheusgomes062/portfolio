@@ -36,6 +36,22 @@ const createFeed = async (feed: any, extension: string) => {
   })
 }
 
+const getDynamicRoutes = async () => {
+  const {
+    data: { data: articles }
+  } = await api.get('articles')
+  const {
+    data: { data: cases }
+  } = await api.get('cases')
+  const articleRoutes = articles
+    .filter(article => article.status === 'published')
+    .map(article => `/articles/${article.slug}`)
+  const caseRoutes = cases
+    .filter(item => item.status === 'published')
+    .map(item => `/work/${item.slug}`)
+  return [...articleRoutes, ...caseRoutes]
+}
+
 export default {
   mode: 'universal',
 
@@ -164,23 +180,14 @@ export default {
 
   generate: {
     async routes() {
-      const {
-        data: { data: articles }
-      } = await api.get('articles')
-      const {
-        data: { data: cases }
-      } = await api.get('cases')
-      const articleRoutes = articles
-        .filter(article => article.status === 'published')
-        .map(article => `/articles/${article.slug}`)
-      const caseRoutes = cases
-        .filter(item => item.status === 'published')
-        .map(item => `/work/${item.slug}`)
-      return [...articleRoutes, ...caseRoutes]
+      return await getDynamicRoutes()
     }
   },
 
   sitemap: {
-    hostname: 'https://www.simonwuyts.com'
+    hostname: 'https://www.simonwuyts.com',
+    async routes() {
+      return await getDynamicRoutes()
+    }
   }
 }
