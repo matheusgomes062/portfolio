@@ -113,9 +113,11 @@ export default {
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       {
-        rel: 'stylesheet',
+        rel: 'preload',
         type: 'text/css',
-        href: 'https://rsms.me/inter/inter.css'
+        href: 'https://rsms.me/inter/inter.css',
+        as: 'style',
+        onload: `this.onload=null;this.rel='stylesheet'`
       },
       {
         rel: 'alternate',
