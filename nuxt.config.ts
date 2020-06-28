@@ -136,12 +136,7 @@ export default {
   css: ['@/assets/scss/main.scss'],
 
   plugins: ['@/plugins/composition-api'],
-  modules: [
-    ['nuxt-matomo', { matomoUrl: '//analytics.simonwuyts.eu/', siteId: 1 }],
-    ['@nuxtjs/feed'],
-    'nuxt-svg-loader',
-    '@nuxtjs/sitemap'
-  ],
+  modules: [['@nuxtjs/feed'], 'nuxt-svg-loader', '@nuxtjs/sitemap'],
   buildModules: ['@nuxt/typescript-build'],
 
   build: {
