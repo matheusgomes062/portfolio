@@ -1,9 +1,11 @@
-import { api } from './plugins/cms'
+const fetch = require('node-fetch')
 
 const createFeed = async (feed: any, extension: string) => {
-  const {
-    data: { data: articles }
-  } = await api.get('articles')
+  const { data: articles } = await (
+    await fetch(
+      'https://portfolio.simonwuyts.eu/portfolio/items/articles?fields=*.*'
+    )
+  ).json()
 
   const filteredArticles = articles
     .filter(article => article.status === 'published')
@@ -37,12 +39,16 @@ const createFeed = async (feed: any, extension: string) => {
 }
 
 const getDynamicRoutes = async () => {
-  const {
-    data: { data: articles }
-  } = await api.get('articles')
-  const {
-    data: { data: cases }
-  } = await api.get('cases')
+  const { data: articles } = await (
+    await fetch(
+      'https://portfolio.simonwuyts.eu/portfolio/items/articles?fields=*.*'
+    )
+  ).json()
+  const { data: cases } = await (
+    await fetch(
+      'https://portfolio.simonwuyts.eu/portfolio/items/cases?fields=*.*'
+    )
+  ).json()
   const articleRoutes = articles
     .filter(article => article.status === 'published')
     .map(article => `/articles/${article.slug}`)
@@ -54,6 +60,7 @@ const getDynamicRoutes = async () => {
 
 export default {
   mode: 'universal',
+  target: 'static',
 
   head: {
     titleTemplate: '%s - Simon Wuyts',
@@ -130,7 +137,6 @@ export default {
 
   plugins: ['@/plugins/composition-api'],
   modules: [
-    'nuxt-payload-extractor',
     ['nuxt-matomo', { matomoUrl: '//analytics.simonwuyts.eu/', siteId: 1 }],
     ['@nuxtjs/feed'],
     'nuxt-svg-loader',
@@ -177,12 +183,6 @@ export default {
       type: 'json1'
     }
   ],
-
-  generate: {
-    async routes() {
-      return await getDynamicRoutes()
-    }
-  },
 
   sitemap: {
     hostname: 'https://www.simonwuyts.com',

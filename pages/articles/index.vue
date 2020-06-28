@@ -27,15 +27,14 @@
 </template>
 
 <script lang="ts">
-import { api, getLocal } from '~/plugins/cms'
 import { format } from 'date-fns'
-import { createComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref } from '@vue/composition-api'
 import SLinkList from '~/components/SLinkList.vue'
 import SLinkListItem from '~/components/SLinkListItem.vue'
 import SPageTitle from '~/components/SPageTitle.vue'
 import SSocial from '~/components/SSocial.vue'
 
-export default createComponent({
+export default defineComponent({
   name: 'Articles',
 
   components: {
@@ -51,17 +50,21 @@ export default createComponent({
     }
   },
 
-  async asyncData({ $payloadURL, route }) {
-    if (process.static && process.client) {
-      const url = $payloadURL(route)
-      return await getLocal($payloadURL(route))
-    }
-
-    const [pages, articles] = await Promise.all([api('pages'), api('articles')])
+  async asyncData() {
+    const pages = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/pages?fields=*.*'
+      )
+    ).json()
+    const articles = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/articles?fields=*.*'
+      )
+    ).json()
 
     return {
-      page: pages.data.data.filter((page: any) => page.slug === 'articles')[0],
-      articles: articles.data.data
+      page: pages.data.filter((page: any) => page.slug === 'articles')[0],
+      articles: articles.data
         .filter((article: any) => article.status === 'published')
         .map((article: any) => {
           return {

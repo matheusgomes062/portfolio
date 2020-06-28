@@ -23,8 +23,7 @@
 </template>
 
 <script lang="ts">
-import { api, getLocal } from '~/plugins/cms.ts'
-import { createComponent, ref } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import SCases from '~/components/SCases.vue'
 import SClients from '~/components/SClients.vue'
 import SLinkList from '~/components/SLinkList.vue'
@@ -32,7 +31,7 @@ import SLinkListItem from '~/components/SLinkListItem.vue'
 import SPageTitle from '~/components/SPageTitle.vue'
 import SSocial from '~/components/SSocial.vue'
 
-export default createComponent({
+export default defineComponent({
   name: 'Work',
 
   components: {
@@ -50,21 +49,26 @@ export default createComponent({
     }
   },
 
-  async asyncData({ $payloadURL, route }) {
-    if (process.static && process.client) {
-      const url = $payloadURL(route)
-      return await getLocal($payloadURL(route))
-    }
-
-    const [pages, cases, clients] = await Promise.all([
-      api('pages'),
-      api('cases'),
-      api('clients')
-    ])
+  async asyncData() {
+    const pages = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/pages?fields=*.*'
+      )
+    ).json()
+    const cases = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/cases?fields=*.*'
+      )
+    ).json()
+    const clients = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/clients?fields=*.*'
+      )
+    ).json()
 
     return {
-      page: pages.data.data.filter((page: any) => page.slug === 'work')[0],
-      cases: cases.data.data
+      page: pages.data.filter((page: any) => page.slug === 'work')[0],
+      cases: cases.data
         .filter((caseItem: any) => caseItem.status === 'published')
         .map((caseItem: any) => {
           return {
@@ -76,7 +80,7 @@ export default createComponent({
             id: caseItem.id
           }
         }),
-      clients: clients.data.data
+      clients: clients.data
     }
   }
 })

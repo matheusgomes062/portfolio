@@ -48,10 +48,10 @@
 </template>
 
 <script lang="ts">
-import { createComponent, computed } from '@vue/composition-api'
+import { defineComponent, computed } from '@vue/composition-api'
 import SLogo from '~/components/SLogo.vue'
 
-export default createComponent({
+export default defineComponent({
   name: 'SNavigation',
 
   components: {

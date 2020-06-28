@@ -8,12 +8,11 @@
 </template>
 
 <script lang="ts">
-import { api, getLocal } from '~/plugins/cms'
-import { createComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref } from '@vue/composition-api'
 import SPageTitle from '~/components/SPageTitle.vue'
 import SSocial from '~/components/SSocial.vue'
 
-export default createComponent({
+export default defineComponent({
   name: 'Contact',
 
   components: {
@@ -27,16 +26,15 @@ export default createComponent({
     }
   },
 
-  async asyncData({ $payloadURL, route }) {
-    if (process.static && process.client) {
-      const url = $payloadURL(route)
-      return await getLocal($payloadURL(route))
-    }
-
-    const pages = await api('pages')
+  async asyncData() {
+    const pages = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/pages?fields=*.*'
+      )
+    ).json()
 
     return {
-      page: pages.data.data.filter((page: any) => page.slug === 'contact')[0]
+      page: pages.data.filter((page: any) => page.slug === 'contact')[0]
     }
   }
 })

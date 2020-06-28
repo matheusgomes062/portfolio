@@ -8,13 +8,12 @@
 </template>
 
 <script lang="ts">
-import { api, getLocal } from '~/plugins/cms'
-import { createComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref } from '@vue/composition-api'
 import SPageTitle from '~/components/SPageTitle.vue'
 import SSocial from '~/components/SSocial.vue'
 import SServices from '~/components/SServices.vue'
 
-export default createComponent({
+export default defineComponent({
   name: 'Index',
 
   components: {
@@ -29,17 +28,21 @@ export default createComponent({
     }
   },
 
-  async asyncData({ $payloadURL, route }) {
-    if (process.static && process.client) {
-      const url = $payloadURL(route)
-      return await getLocal($payloadURL(route))
-    }
-
-    const [pages, services] = await Promise.all([api('pages'), api('services')])
+  async asyncData() {
+    const pages = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/pages?fields=*.*'
+      )
+    ).json()
+    const services = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/services?fields=*.*'
+      )
+    ).json()
 
     return {
-      services: services.data.data,
-      page: pages.data.data.filter((page: any) => page.slug === 'home')[0]
+      services: services.data,
+      page: pages.data.filter((page: any) => page.slug === 'home')[0]
     }
   }
 })

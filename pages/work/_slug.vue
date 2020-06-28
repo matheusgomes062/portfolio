@@ -35,19 +35,13 @@
 </template>
 
 <script lang="ts">
-import { api, getLocal } from '~/plugins/cms'
-import {
-  createComponent,
-  ref,
-  onMounted,
-  onUnmounted
-} from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import Color from 'color'
 import SPageTitle from '~/components/SPageTitle.vue'
 import SSocial from '~/components/SSocial.vue'
 import STags from '~/components/STags.vue'
 
-export default createComponent({
+export default defineComponent({
   name: 'Case',
 
   components: {
@@ -98,16 +92,15 @@ export default createComponent({
     }
   },
 
-  async asyncData({ params, $payloadURL, route }) {
-    if (process.static && process.client) {
-      const url = $payloadURL(route)
-      return await getLocal($payloadURL(route))
-    }
-
-    const cases = await api('cases')
+  async asyncData({ params }) {
+    const cases = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/cases?fields=*.*'
+      )
+    ).json()
 
     return {
-      caseItem: cases.data.data.filter(
+      caseItem: cases.data.filter(
         (caseItem: any) => caseItem.slug === params.slug
       )[0]
     }

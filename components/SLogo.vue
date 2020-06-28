@@ -34,9 +34,9 @@
 </template>
 
 <script lang="ts">
-import { createComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref } from '@vue/composition-api'
 
-export default createComponent({
+export default defineComponent({
   name: 'SLogo',
 
   setup() {

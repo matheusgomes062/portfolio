@@ -13,16 +13,15 @@
 </template>
 
 <script lang="ts">
-import { api, getLocal } from '~/plugins/cms'
 import { format } from 'date-fns'
 import { highlightAll } from 'prismjs'
 import '~/assets/highlighting.css'
-import { createComponent, onMounted } from '@vue/composition-api'
+import { defineComponent, onMounted } from '@vue/composition-api'
 import SPageTitle from '~/components/SPageTitle.vue'
 import SSocial from '~/components/SSocial.vue'
 import STags from '~/components/STags.vue'
 
-export default createComponent({
+export default defineComponent({
   name: 'Article',
 
   components: {
@@ -73,16 +72,15 @@ export default createComponent({
     }
   },
 
-  async asyncData({ params, $payloadURL, route }) {
-    if (process.static && process.client) {
-      const url = $payloadURL(route)
-      return await getLocal($payloadURL(route))
-    }
-
-    const articles = await api('articles')
+  async asyncData({ params }) {
+    const articles = await (
+      await fetch(
+        'https://portfolio.simonwuyts.eu/portfolio/items/articles?fields=*.*'
+      )
+    ).json()
 
     return {
-      article: articles.data.data.filter(
+      article: articles.data.filter(
         (article: any) => article.slug === params.slug
       )[0]
     }
