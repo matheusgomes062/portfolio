@@ -61,6 +61,7 @@ const getDynamicRoutes = async () => {
 export default {
   mode: 'universal',
   target: 'static',
+  cache: true,
 
   head: {
     titleTemplate: '%s - Simon Wuyts',
