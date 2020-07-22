@@ -85,3 +85,5 @@ sw.*
 
 static/articles/feed.json
 static/articles/feed.xml
+
+.vercel
