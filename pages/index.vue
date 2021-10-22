@@ -1,25 +1,25 @@
-<template>
-  <div class="c-content__center">
-    <s-page-title>{{ page.title }}</s-page-title>
-    <div class="lead enter-fade-up enter-delay-1" v-html="page.introduction" />
-    <s-services :services="services" />
-    <s-social />
-  </div>
+<template lang="pug">
+  div(class="c-content__center")
+    m-page-title Matheus Gomes
+    div(class="lead enter-fade-up enter-delay-1")
+      p Freelance #[strong front-end developer] and #[strong writer]. Dreams in HTML, CSS and Javascript, lives in São José dos Campos, Brazil. Helps other people build digital products.
+    m-services(:services="services")
+    m-social
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api'
-import SPageTitle from '~/components/SPageTitle.vue'
-import SSocial from '~/components/SSocial.vue'
-import SServices from '~/components/SServices.vue'
+import MPageTitle from '~/components/MPageTitle.vue'
+import MSocial from '~/components/MSocial.vue'
+import MServices from '~/components/MServices.vue'
 
 export default defineComponent({
   name: 'Index',
 
   components: {
-    SSocial,
-    SPageTitle,
-    SServices
+    MSocial,
+    MPageTitle,
+    MServices
   },
 
   head() {

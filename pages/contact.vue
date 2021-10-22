@@ -1,40 +1,30 @@
-<template>
-  <div class="c-content__center">
-    <s-page-title>{{ page.title }}</s-page-title>
-    <div class="lead enter-fade-up enter-delay-1" v-html="page.introduction" />
-    <div class="enter-fade-up enter-delay-2" v-html="page.content" />
-    <s-social />
-  </div>
+<template lang="pug">
+  div(class="c-content__center")
+    m-page-title Contact
+    div(class="lead enter-fade-up enter-delay-1")
+      p Think we can make great things together?
+      span
+        a(href="matheusgomes062@gmail.com") Let's get in touch!
+    div(class="enter-fade-up enter-delay-2")
+    m-social
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api'
-import SPageTitle from '~/components/SPageTitle.vue'
-import SSocial from '~/components/SSocial.vue'
+import MPageTitle from '~/components/MPageTitle.vue'
+import MSocial from '~/components/MSocial.vue'
 
 export default defineComponent({
   name: 'Contact',
 
   components: {
-    SSocial,
-    SPageTitle
+    MSocial,
+    MPageTitle
   },
 
   head() {
     return {
       title: 'Contact'
-    }
-  },
-
-  async asyncData() {
-    const pages = await (
-      await fetch(
-        'https://portfolio.simonwuyts.eu/portfolio/items/pages?fields=*.*'
-      )
-    ).json()
-
-    return {
-      page: pages.data.filter((page: any) => page.slug === 'contact')[0]
     }
   }
 })

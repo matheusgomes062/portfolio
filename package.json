@@ -1,8 +1,8 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "Portfolio website",
-  "author": "Simon Wuyts",
+  "description": "Portfolio website - abstracted from Simon Wuyts portfolio website",
+  "author": "Matheus Gomes",
   "private": true,
   "scripts": {
     "serve": "nuxt-ts",
@@ -22,7 +22,9 @@
     "date-fns": "^2.7.0",
     "node-sass": "^4.13.0",
     "nuxt": "^2.13.2",
-    "prismjs": "^1.21.0"
+    "prismjs": "^1.21.0",
+    "tailwindcss": "^2.2.17",
+    "vue-lottie": "^0.2.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.3",
@@ -31,12 +33,16 @@
     "@types/prismjs": "^1.16.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "fibers": "^5.0.0",
     "mkdirp-promise": "^5.0.1",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.4",
     "nuxt-svg-loader": "^1.2.0",
     "prettier": "^1.16.4",
-    "sass-loader": "^8.0.0"
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass": "^1.43.2",
+    "sass-loader": "10"
   },
   "volta": {
     "node": "14.15.5"

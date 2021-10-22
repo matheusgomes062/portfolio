@@ -1,6 +1,6 @@
 <template>
   <div class="c-content__center">
-    <s-page-title>{{ page.title }}</s-page-title>
+    <m-page-title>{{ page.title }}</m-page-title>
     <div
       class="lead enter-fade-up enter-delay-1"
       v-html="page.introduction"
@@ -22,7 +22,7 @@
         {{ article.title }}
       </s-link-list-item>
     </s-link-list>
-    <s-social />
+    <m-social />
   </div>
 </template>
 
@@ -31,8 +31,8 @@ import { format } from 'date-fns'
 import { defineComponent, ref } from '@vue/composition-api'
 import SLinkList from '~/components/SLinkList.vue'
 import SLinkListItem from '~/components/SLinkListItem.vue'
-import SPageTitle from '~/components/SPageTitle.vue'
-import SSocial from '~/components/SSocial.vue'
+import MPageTitle from '~/components/MPageTitle.vue'
+import MSocial from '~/components/MSocial.vue'
 
 export default defineComponent({
   name: 'Articles',
@@ -40,8 +40,8 @@ export default defineComponent({
   components: {
     SLinkList,
     SLinkListItem,
-    SSocial,
-    SPageTitle
+    MSocial,
+    MPageTitle
   },
 
   head() {

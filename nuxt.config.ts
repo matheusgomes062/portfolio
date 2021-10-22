@@ -16,7 +16,7 @@ const createFeed = async (feed: any, extension: string) => {
     })
 
   feed.options = {
-    title: 'Simon Wuyts - Articles',
+    title: 'Matheus Gomes - Articles',
     link: `https://www.simonwuyts.com/articles/feed.${extension}`
   }
 
@@ -32,7 +32,7 @@ const createFeed = async (feed: any, extension: string) => {
   })
 
   feed.addContributor({
-    name: 'Simon Wuyts',
+    name: 'Matheus Gomes',
     email: 'hi@simonwuyts.com',
     link: 'https://www.simonwuyts.com/'
   })
@@ -52,10 +52,10 @@ const getDynamicRoutes = async () => {
   const articleRoutes = articles
     .filter(article => article.status === 'published')
     .map(article => `/articles/${article.slug}`)
-  const caseRoutes = cases
-    .filter(item => item.status === 'published')
-    .map(item => `/work/${item.slug}`)
-  return [...articleRoutes, ...caseRoutes]
+  // const caseRoutes = cases
+  //   .filter(item => item.status === 'published')
+  //   .map(item => `/work/${item.slug}`)
+  return [...articleRoutes]
 }
 
 export default {
@@ -64,7 +64,7 @@ export default {
   cache: true,
 
   head: {
-    titleTemplate: '%s - Simon Wuyts',
+    titleTemplate: '%s - Matheus Gomes',
     htmlAttrs: {
       lang: 'en'
     },
@@ -84,7 +84,7 @@ export default {
       {
         hid: 'ogtitle',
         property: 'og:title',
-        content: 'Simon Wuyts - Interaction Designer & Front-end Developer'
+        content: 'Matheus Gomes - Interaction Designer & Front-end Developer'
       },
       {
         hid: 'ogimage',
@@ -108,7 +108,7 @@ export default {
       {
         hid: 'twittertitle',
         property: 'twitter:title',
-        content: 'Simon Wuyts - Interaction Designer & Front-end Developer'
+        content: 'Matheus Gomes - Interaction Designer & Front-end Developer'
       }
     ],
     link: [
@@ -122,13 +122,13 @@ export default {
         rel: 'alternate',
         type: 'application/rss+xml',
         href: 'https://www.simonwuyts.com/articles/feed.xml',
-        title: 'Simon Wuyts - Interaction Designer & Front-end Developer'
+        title: 'Matheus Gomes - Interaction Designer & Front-end Developer'
       },
       {
         rel: 'alternate',
         type: 'application/json',
         href: 'https://www.simonwuyts.com/articles/feed.json',
-        title: 'Simon Wuyts - Interaction Designer & Front-end Developer'
+        title: 'Matheus Gomes - Interaction Designer & Front-end Developer'
       }
     ]
   },

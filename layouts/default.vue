@@ -1,7 +1,7 @@
 <template>
   <div class="c-main">
     <s-filters />
-    <s-navigation />
+    <m-navigation />
     <s-content>
       <nuxt />
     </s-content>
@@ -12,14 +12,14 @@
 import { defineComponent } from '@vue/composition-api'
 import SContent from '~/components/SContent.vue'
 import SFilters from '~/assets/svg/filters.svg'
-import SNavigation from '~/components/SNavigation.vue'
+import MNavigation from '~/components/MNavigation.vue'
 
 export default defineComponent({
   name: 'Default',
   components: {
     SContent,
     SFilters,
-    SNavigation
+    MNavigation
   }
 })
 </script>

@@ -1,14 +1,14 @@
 <template>
   <div class="c-content__center">
     <div class="c-date enter-fade-in">{{ formatDate(article.date) }}</div>
-    <s-page-title> {{ article.title }} </s-page-title>
+    <m-page-title> {{ article.title }} </m-page-title>
     <s-tags class="enter-fade-up enter-delay-1" :tags="article.tags" />
     <div
       class="lead enter-fade-up enter-delay-1"
       v-html="article.introduction"
     />
     <div class="enter-fade-up enter-delay-2" v-html="article.content" />
-    <s-social />
+    <m-social />
   </div>
 </template>
 
@@ -17,16 +17,16 @@ import { format } from 'date-fns'
 import { highlightAll } from 'prismjs'
 import '~/assets/highlighting.css'
 import { defineComponent, onMounted } from '@vue/composition-api'
-import SPageTitle from '~/components/SPageTitle.vue'
-import SSocial from '~/components/SSocial.vue'
+import MPageTitle from '~/components/MPageTitle.vue'
+import MSocial from '~/components/MSocial.vue'
 import STags from '~/components/STags.vue'
 
 export default defineComponent({
   name: 'Article',
 
   components: {
-    SSocial,
-    SPageTitle,
+    MSocial,
+    MPageTitle,
     STags
   },
 

@@ -22,14 +22,14 @@
       <div class="c-date enter-fade-in enter-delay-1">
         {{ caseItem.subtitle }}
       </div>
-      <s-page-title class="enter-delay-1"> {{ caseItem.title }} </s-page-title>
+      <m-page-title class="enter-delay-1"> {{ caseItem.title }} </m-page-title>
       <s-tags :tags="caseItem.tech_stack" />
       <div
         class="lead enter-fade-up enter-delay-2"
         v-html="caseItem.introduction"
       />
       <div v-html="caseItem.content" />
-      <s-social :show-slogan="true" />
+      <m-social :show-slogan="true" />
     </div>
   </div>
 </template>
@@ -37,16 +37,16 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
 import Color from 'color'
-import SPageTitle from '~/components/SPageTitle.vue'
-import SSocial from '~/components/SSocial.vue'
+import MPageTitle from '~/components/MPageTitle.vue'
+import MSocial from '~/components/MSocial.vue'
 import STags from '~/components/STags.vue'
 
 export default defineComponent({
   name: 'Case',
 
   components: {
-    SSocial,
-    SPageTitle,
+    MSocial,
+    MPageTitle,
     STags
   },
 

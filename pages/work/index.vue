@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="c-content__center">
-      <s-page-title>{{ page.title }}</s-page-title>
+      <m-page-title>{{ page.title }}</m-page-title>
       <div
         class="lead enter-fade-up enter-delay-1"
         v-html="page.introduction"
@@ -17,7 +17,7 @@
     <s-clients :clients="clients" />
 
     <div class="c-content__center">
-      <s-social />
+      <m-social />
     </div>
   </div>
 </template>
@@ -28,8 +28,8 @@ import SCases from '~/components/SCases.vue'
 import SClients from '~/components/SClients.vue'
 import SLinkList from '~/components/SLinkList.vue'
 import SLinkListItem from '~/components/SLinkListItem.vue'
-import SPageTitle from '~/components/SPageTitle.vue'
-import SSocial from '~/components/SSocial.vue'
+import MPageTitle from '~/components/MPageTitle.vue'
+import MSocial from '~/components/MSocial.vue'
 
 export default defineComponent({
   name: 'Work',
@@ -39,8 +39,8 @@ export default defineComponent({
     SClients,
     SLinkList,
     SLinkListItem,
-    SSocial,
-    SPageTitle
+    MSocial,
+    MPageTitle
   },
 
   head() {
